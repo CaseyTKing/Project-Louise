@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4gb65jauaque"
-path="res://.godot/imported/Path_Top.png-2300d032527fcac52d27bdf5dc7c4805.ctex"
+uid="uid://6sy0vr7w1tmu"
+path="res://.godot/imported/Path_Top.png-f05e054db5c090f0aee2cd45a5133181.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Path_Top.png"
-dest_files=["res://.godot/imported/Path_Top.png-2300d032527fcac52d27bdf5dc7c4805.ctex"]
+source_file="res://Tiles/PNGs/Path_Top.png"
+dest_files=["res://.godot/imported/Path_Top.png-f05e054db5c090f0aee2cd45a5133181.ctex"]
 
 [params]
 
