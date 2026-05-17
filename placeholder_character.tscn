@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vmry2ovv00lk"]
 
 [ext_resource type="Script" uid="uid://bi300rpe6od3w" path="res://character_body_2d.gd" id="1_ueb72"]
-[ext_resource type="Texture2D" uid="uid://de5qbxwhjt5gs" path="res://Tiles/Characters/LRW_MAIN_CHAR_SPRITE.png" id="2_cewbg"]
+[ext_resource type="Texture2D" uid="uid://cj82h1vbstf6m" path="res://Tiles/Characters/fuck ass.png" id="2_ueb72"]
 
 [node name="Placeholder_Character" type="Node2D" unique_id=1700021171]
 
@@ -11,6 +11,7 @@ script = ExtResource("1_ueb72")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=602088347]
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1175809273]
+zoom = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2059147991]
-texture = ExtResource("2_cewbg")
+texture = ExtResource("2_ueb72")
