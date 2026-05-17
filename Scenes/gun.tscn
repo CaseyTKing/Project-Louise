@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://w42nit2x3r08"]
+
+[ext_resource type="Texture2D" uid="uid://cvv753q7etlm6" path="res://Tiles/Guns/handgun.png" id="1_m3ict"]
+[ext_resource type="Script" uid="uid://ceq1vdxf08xh5" path="res://Scenes/gun_area.gd" id="1_oqrbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxj5y"]
+size = Vector2(37, 39)
+
+[node name="Gun" type="Node2D" unique_id=841460847]
+
+[node name="GunArea" type="Area2D" parent="." unique_id=1655268482]
+script = ExtResource("1_oqrbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunArea" unique_id=1048096464]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_nxj5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="GunArea" unique_id=1853489712]
+texture = ExtResource("1_m3ict")
+
+[node name="Label" type="Label" parent="GunArea" unique_id=144166848]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="GunArea" to="GunArea" method="_on_body_entered"]
+[connection signal="body_exited" from="GunArea" to="GunArea" method="_on_body_exited"]

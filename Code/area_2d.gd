@@ -12,23 +12,23 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player_in_range and not picked_up:
 		if Input.is_action_just_pressed("interact"):
-			pick_up()
+			pick_up()  #displays interact button when nearby
 
 func _on_body_entered (body: Node2D) -> void:
 	if body.name == "Player":
 		player_in_range = true
 		prompt.visible = true
-		sprite.modulate = Color (1, 1, 0.6)
+		sprite.modulate = Color (1, 1, 0.6) #when in radius, glow
 
 func _on_body_exited (body: Node2D) -> void:
 	if body.name == "Player":
 		player_in_range = false
 		prompt.visible = false
-		sprite.modulate = Color (1, 1, 1)
+		sprite.modulate = Color (1, 1, 1) #when radius exited, remove glow
 
 func pick_up() -> void:
 	picked_up = true
 	prompt.visible = false
 	hide()
 	queue_free()
-	
+	#when picked up, hide prompt
