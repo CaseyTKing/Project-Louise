@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbor2vn6rd4r"]
+
+[ext_resource type="Script" uid="uid://by478eqsj1j65" path="res://area_2d.gd" id="1_dk5gl"]
+[ext_resource type="Texture2D" uid="uid://cvv753q7etlm6" path="res://Tiles/Guns/handgun.png" id="2_kw0bs"]
+
+[node name="Node2D" type="Node2D" unique_id=984969008]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=324645460]
+script = ExtResource("1_dk5gl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=2146056013]
+texture = ExtResource("2_kw0bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=995751349]
+
+[node name="Label" type="Label" parent="Area2D" unique_id=131435437]
+offset_right = 40.0
+offset_bottom = 23.0
