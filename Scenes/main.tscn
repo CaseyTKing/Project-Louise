@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://mpt78ekqmerv"]
+
+[ext_resource type="PackedScene" uid="uid://w42nit2x3r08" path="res://Scenes/gun.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://vmry2ovv00lk" path="res://Scenes/Player.tscn" id="2_8gbba"]
+
+[node name="Node2D" type="Node2D" unique_id=128313364]
+
+[node name="Gun" parent="." unique_id=841460847 instance=ExtResource("1_bo1nx")]
+
+[node name="Player" parent="." unique_id=1700021171 instance=ExtResource("2_8gbba")]
