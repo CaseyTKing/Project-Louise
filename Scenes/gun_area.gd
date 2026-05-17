@@ -27,4 +27,9 @@ func _on_body_exited(body: Node) -> void:
 
 func pick_up() -> void:
 	picked_up = true
+	var player = get_tree().get_first_node_in_group("player")
+	print("player node:", player)
+	if player and player.has_method("add_item"):
+		player.add_item("Gun")
+		print("Gun added")
 	queue_free()

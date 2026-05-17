@@ -9,24 +9,22 @@ height = 28.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kyqiw"]
 
-[node name="Player" type="Node2D" unique_id=1700021171]
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=939454237]
+[node name="Player" type="CharacterBody2D" unique_id=564270437 groups=["player"]]
 script = ExtResource("1_ueb72")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=602088347]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2141077634]
 shape = SubResource("CapsuleShape2D_gck0k")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1175809273]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1968231988]
 zoom = Vector2(3, 3)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2059147991]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868164807]
 texture = ExtResource("2_ueb72")
 
-[node name="PickupArea" type="Area2D" parent="Player" unique_id=279226798]
+[node name="PickupArea" type="Area2D" parent="." unique_id=1351487003]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PickupArea" unique_id=199065595]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1367261960]
 shape = SubResource("CapsuleShape2D_kyqiw")
 
-[connection signal="body_entered" from="Player/PickupArea" to="Player" method="_on_pickup_area_body_entered"]
-[connection signal="body_exited" from="Player/PickupArea" to="Player" method="_on_pickup_area_body_exited"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
+[connection signal="body_exited" from="PickupArea" to="." method="_on_pickup_area_body_exited"]
