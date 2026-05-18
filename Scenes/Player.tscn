@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vmry2ovv00lk"]
 
 [ext_resource type="Script" uid="uid://bi300rpe6od3w" path="res://Code/character_body_2d.gd" id="1_ueb72"]
-[ext_resource type="Texture2D" uid="uid://cj82h1vbstf6m" path="res://Tiles/Characters/fuck ass.png" id="2_ueb72"]
+[ext_resource type="Texture2D" uid="uid://mawhtax8uc5r" path="res://Tiles/Characters/test char.png" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gck0k"]
 radius = 8.0
@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape2D_gck0k")
 zoom = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868164807]
-texture = ExtResource("2_ueb72")
+texture = ExtResource("2_kyqiw")
 
 [node name="PickupArea" type="Area2D" parent="." unique_id=1351487003]
 
