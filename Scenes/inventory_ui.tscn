@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cybg1b8p0nlyr"]
 
 [ext_resource type="Script" uid="uid://bal6cljoxt11k" path="res://Scenes/inventory_ui.gd" id="1_8su62"]
+[ext_resource type="Script" uid="uid://cfepnqsk30qkq" path="res://Scenes/label.gd" id="2_os1l6"]
 
 [node name="InventoryUI" type="Control" unique_id=1634487636 groups=["inventory_ui"]]
 layout_mode = 3
@@ -20,3 +21,9 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Health_Label" type="Label" parent="Panel" unique_id=1825860480]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_os1l6")
