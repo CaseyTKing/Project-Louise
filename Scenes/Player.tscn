@@ -1,30 +1,168 @@
 [gd_scene format=3 uid="uid://vmry2ovv00lk"]
 
 [ext_resource type="Script" uid="uid://bi300rpe6od3w" path="res://Code/character_body_2d.gd" id="1_ueb72"]
-[ext_resource type="Texture2D" uid="uid://mawhtax8uc5r" path="res://Tiles/Characters/test char.png" id="2_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://pytdg7orf0mc" path="res://Tiles/MAIN CHARACTER/MAIN CHARACTER SPRITE SHEET.png" id="2_kyqiw"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gck0k"]
-radius = 8.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dewec"]
+size = Vector2(22, 22)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kyqiw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gntrk"]
+size = Vector2(14, 15)
 
-[node name="Player" type="CharacterBody2D" unique_id=564270437 groups=["player"]]
+[sub_resource type="Animation" id="Animation_dewec"]
+resource_name = "Down"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ixxa"]
+resource_name = "Left"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gntrk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nn08x"]
+resource_name = "Right"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kyqiw"]
+resource_name = "Up"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gntrk"]
+_data = {
+&"Down": SubResource("Animation_dewec"),
+&"Left": SubResource("Animation_5ixxa"),
+&"RESET": SubResource("Animation_gntrk"),
+&"Right": SubResource("Animation_nn08x"),
+&"Up": SubResource("Animation_kyqiw")
+}
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kyqiw"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kyqiw"]
+animation = &"Down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gntrk"]
+animation = &"Up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dewec"]
+animation = &"Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ixxa"]
+animation = &"Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_nn08x"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_kyqiw")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_gntrk")
+blend_point_1/pos = Vector2(0, -0.90000004)
+blend_point_2/node = SubResource("AnimationNodeAnimation_dewec")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_5ixxa")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dewec"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_kyqiw")
+states/Idle/position = Vector2(342, 100)
+states/Start/position = Vector2(231, 100)
+states/Walking/node = SubResource("AnimationNodeBlendSpace2D_nn08x")
+states/Walking/position = Vector2(466, 100)
+
+[node name="Player" type="CharacterBody2D" unique_id=564270437 node_paths=PackedStringArray("animation_tree") groups=["player"]]
 script = ExtResource("1_ueb72")
+animation_tree = NodePath("AnimationTree")
+
+[node name="PickupArea" type="Area2D" parent="." unique_id=1351487003]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1367261960]
+shape = SubResource("RectangleShape2D_dewec")
+debug_color = Color(0.501174, 0.5762503, 0.20290509, 0.21568628)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2141077634]
-shape = SubResource("CapsuleShape2D_gck0k")
+shape = SubResource("RectangleShape2D_gntrk")
+debug_color = Color(0.52156866, 0.16470589, 0.19215687, 0.3882353)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1968231988]
 zoom = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868164807]
+scale = Vector2(1, 0.97)
 texture = ExtResource("2_kyqiw")
+hframes = 4
 
-[node name="PickupArea" type="Area2D" parent="." unique_id=1351487003]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1159596275]
+libraries/ = SubResource("AnimationLibrary_gntrk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" unique_id=1367261960]
-shape = SubResource("CapsuleShape2D_kyqiw")
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1626234045]
+tree_root = SubResource("AnimationNodeStateMachine_dewec")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(0, 0)
+parameters/Walking/blend_position = Vector2(0, 0)
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="body_exited" from="PickupArea" to="." method="_on_pickup_area_body_exited"]
