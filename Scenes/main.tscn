@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bixcib1p638pu" path="res://Tiles/LeonTiles/SpriteSheet/sprite sheet main.png" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://vmry2ovv00lk" path="res://Scenes/Player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cybg1b8p0nlyr" path="res://Scenes/inventory_ui.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://bfmiempim7a7y" path="res://Scenes/shadertest.gd" id="3_21xkr"]
+[ext_resource type="Texture2D" uid="uid://cv1bhnihht3nc" path="res://icon.svg" id="5_kry3j"]
 
 [sub_resource type="GDScript" id="GDScript_jjvhh"]
 script/source = "extends Node2D
@@ -21,6 +23,8 @@ func _input(event: InputEvent) -> void:
 		if inventory_ui.visible:
 			inventory_ui.refresh(player.inventory)
 "
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jjvhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kry3j"]
 texture = ExtResource("1_jjvhh")
@@ -330,15 +334,24 @@ texture = ExtResource("1_jjvhh")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kry3j")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_21xkr"]
+
 [node name="Node2D" type="Node2D" unique_id=128313364]
 script = SubResource("GDScript_jjvhh")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=422718082]
+material = SubResource("CanvasItemMaterial_jjvhh")
 position = Vector2(36, 38)
 tile_set = SubResource("TileSet_21xkr")
 collision_visibility_mode = 1
 format = 2
 layer_0/tile_data = PackedInt32Array(-262143, 458752, 3, -262142, 458752, 3, -262141, 458752, 3, -262140, 458752, 3, -262139, 458752, 3, -262144, 65536, 3, -327680, 589824, 3, -393216, 589824, 3, -458752, 589824, 3, -524288, 589824, 3, -524287, 65536, 1, -458751, 65536, 1, -393215, 65536, 1, -327679, 65536, 1, -327678, 65536, 1, -393214, 65536, 1, -458750, 65536, 1, -524286, 65536, 1, -524285, 65536, 1, -458749, 65536, 1, -393213, 65536, 1, -327677, 65536, 1, -327676, 65536, 1, -393212, 65536, 1, -458748, 65536, 1, -524284, 65536, 1, -327675, 589824, 1, -393211, 589824, 1, -458747, 589824, 1, -524283, 589824, 1, -524282, 589824, 1, -458746, 589824, 1, -393210, 589824, 1, -327674, 589824, 1, -262138, 589824, 1, -262137, 589824, 1, -327673, 589824, 1, -393209, 589824, 1, -458745, 589824, 1, -524281, 589824, 1, -524280, 589824, 1, -458744, 589824, 1, -393208, 589824, 1, -327672, 589824, 1, -262136, 589824, 1)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1339739100]
+material = SubResource("CanvasItemMaterial_21xkr")
+position = Vector2(367, -57)
+texture = ExtResource("5_kry3j")
+script = ExtResource("3_21xkr")
 
 [node name="Gun" parent="." unique_id=841460847 instance=ExtResource("1_bo1nx")]
 position = Vector2(153, -35)
