@@ -22,5 +22,7 @@ texture = ExtResource("1_m3ict")
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Muzzle" type="Marker2D" parent="GunArea" unique_id=719471785]
+
 [connection signal="body_entered" from="GunArea" to="GunArea" method="_on_body_entered"]
 [connection signal="body_exited" from="GunArea" to="GunArea" method="_on_body_exited"]

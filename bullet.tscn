@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bqwuj60psfc0x"]
+
+[ext_resource type="Script" uid="uid://c7qfoc8hkk4r6" path="res://area_2d.gd" id="1_v7oki"]
+[ext_resource type="Texture2D" uid="uid://w18ihng3qns3" path="res://kevin_gyatt420.png" id="2_v8qja"]
+
+[node name="Node2D" type="Node2D" unique_id=1707609032]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=998445375]
+script = ExtResource("1_v7oki")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=215198737]
+texture = ExtResource("2_v8qja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1138446573]

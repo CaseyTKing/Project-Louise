@@ -6,6 +6,8 @@ var inventory: Array[String] = []
 var health: int = max_health
 @export var animation_tree : AnimationTree
 var playback : AnimationNodeStateMachinePlayback
+@export var bullet_scene: PackedScene
+@onready var muzzle: Marker2D = $Muzzle
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -39,3 +41,5 @@ func select_animation():
 		playback.travel("Idle")
 	else:
 		playback.travel("Walking")
+		
+		
